@@ -1,0 +1,187 @@
+\usepackage{geometry}                			% See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   			% ... or a4paper or a5paper or ... 
+
+%%% PACKAGES
+\usepackage{booktabs}					% for much better looking tables
+\usepackage{array} 						% for better arrays (eg matrices) in maths
+\usepackage{paralist} 					% very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim}					% adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfigure} 					% make it possible to include more than one captioned figure/table in a single float
+\usepackage{graphicx}					% Use pdf, png, jpg, or eps with pdflatex; use eps in DVI mode
+									% TeX will automatically convert eps --> pdf in pdflatex		
+\usepackage{amssymb}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{colortbl}
+\usepackage{fullpage}
+\usepackage{layout}
+\usepackage{todonotes}
+\usepackage{amsthm}
+\usepackage{soul} % for highlighting 
+\usepackage{url}
+
+
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} 					% This should be set AFTER setting up the page geometry
+\pagestyle{fancy} 						% options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} 		% customise the layout...
+\lhead{\small \textsf{Advanced Human Robot Interaction to Create Human Robot Teams} \newline \vspace{3pt}{\bfseries \textsf A131-068-0002}}
+\chead{}
+\rhead{\includegraphics[width=1.5in]{BRC-Logo001.jpg}}
+\lfoot{}
+\cfoot{\noindent\small \textsf{\begin{flushleft}Use or disclosure of data contained on this page is subject to the restriction on the first page of this volume.\hfill \thepage \end{flushleft}}}
+\rfoot{}
+
+\fancypagestyle{firststyle}
+{
+ \lhead{\small \textsf{Advanced Human Robot Interaction to Create Human Robot Teams} \newline \vspace{3pt}{\bfseries \textsf A131-068-0002}}
+\chead{}
+\rhead{\includegraphics[width=1.5in]{BRC-Logo001.jpg}}
+\lfoot{}
+\cfoot{\footnotesize \textsf{\begin{flushleft}{This proposal includes data that shall not be disclosed outside the Government and shall not be duplicated, used, or disclosed-in whole or in part-for any purpose other than to evaluate this proposal. If, however, a contract is awarded to this offeror as a result of-or in connection with-the submission of this data, the Government shall have the right to duplicate, use, or disclose the data to the extent provided in the resulting contract. This restriction does not limit the Government's right to use information contained in this data if it is obtained from another source without restriction. The data subject to this restriction are contained in pages 1 through 20.}\\\ \\
+\small Use or disclosure of data contained on this page is subject to the restriction on the first page of this volume.\hfill \thepage \end{flushleft}}}
+\rfoot{}
+
+  }
+
+%%% Default Fonts
+\renewcommand{\rmdefault}{ptm}
+%\renewcommand{\sfdefault}{phv}
+\renewcommand{\ttdefault}{pcr}
+
+
+%%% SECTION TITLE APPEARANCE
+\usepackage[compact,sf,bf]{titlesec}
+
+%%% Colors
+
+\definecolor{cream}{RGB}{254,248,239} % table body
+\definecolor{palegreen}{RGB}{224,237,213} %table title
+\definecolor{purple}{rgb}{1,0,1} % comments
+
+
+
+%%% CUSTOM COMMANDS
+
+\newcommand\T{\rule{0pt}{2.6ex}}       			% Top strut
+\newcommand\B{\rule[-1.2ex]{0pt}{0pt}} 			% Bottom strut
+
+
+\newcommand{\eRein}{{\sffamily \bfseries eRein }}
+\newcommand{\eReinNs}{{\sffamily \bfseries eRein}}
+
+%%% PAGE LAYOUT
+
+\setlength{\topmargin}{-60pt}
+\setlength{\headheight}{50pt}
+\setlength{\headsep}{10pt}
+\setlength{\textheight}{648pt}
+
+
+%%%% Proposal Formats
+
+
+% Previous Projects layout
+\newcommand{\projectnametext}{\ }
+\newcommand{\projectperformertext}{\ }
+\newcommand{\projectdescriptiontext}{\ }
+\newcommand{\projectPOCtext}{\ }
+\newcommand{\projectPOPtext}{\ }
+\newcommand{\projectrelevancetext}{\ }
+\newcommand{\projectname}[1]{\renewcommand{\projectnametext}{#1}}
+\newcommand{\projectperformer}[1]{\renewcommand{\projectperformertext}{#1}}
+\newcommand{\projectdescription}[1]{\renewcommand{\projectdescriptiontext}{#1}}
+\newcommand{\projectPOC}[1]{\renewcommand{\projectPOCtext}{#1}}
+\newcommand{\projectPOP}[1]{\renewcommand{\projectPOPtext}{#1}}
+\newcommand{\projectrelevance}[1]{\renewcommand{\projectrelevancetext}{#1}}
+
+\newcommand{\makeproject}{
+
+\sffamily \small
+\noindent \begin{tabular}{lllr}
+\toprule
+
+\rowcolor{palegreen} \T{\bfseries Project:}& \projectnametext &{\bfseries Performer:}	\projectperformertext &{\bfseries POP:}	\projectPOPtext \B\\
+\midrule
+\rowcolor{cream} \bfseries{Description}&\multicolumn{3}{l}{\parbox{5.25in}{\T \raggedright \projectdescriptiontext\B}}\\
+\midrule
+\rowcolor{cream} \bfseries{POC:}& \multicolumn{3}{l}{\parbox{5.25in}{\T \raggedright \projectPOCtext \B}}\\
+\midrule
+
+\rowcolor{cream} {\bfseries Relevance} &\multicolumn{3}{l}{\parbox{5.25in}{\T \raggedright \projectrelevancetext \B}}
+ \\\bottomrule
+\end{tabular}
+\normalfont
+}
+
+
+%Task Table layout
+\newcommand{\tasknametext}{\ }
+\newcommand{\tasknumbertext}{\ }
+\newcommand{\taskobjectivetext}{\ }
+\newcommand{\taskdurationtext}{\ }
+\newcommand{\taskapproachtext}{\ }
+\newcommand{\taskoutputtext}{\ }
+\newcommand{\taskobjective}[1]{\renewcommand{\taskobjectivetext}{#1}}
+\newcommand{\taskname}[1]{\renewcommand{\tasknametext}{#1}}
+\newcommand{\taskoutput}[1]{\renewcommand{\taskoutputtext}{#1}}
+\newcommand{\taskduration}[1]{\renewcommand{\taskdurationtext}{#1}}
+\newcommand{\taskapproach}[1]{\renewcommand{\taskapproachtext}{#1}}
+\newcommand{\tasknumber}[1]{\renewcommand{\tasknumbertext}{#1}}
+\newcommand{\maketask}{
+%\begin{center}
+\hbox{
+\sffamily \small
+\begin{tabular}{llr}
+\toprule
+\rowcolor{palegreen}{\bfseries Task \tasknumbertext}&	\parbox{4in}{\bfseries \tasknametext}\hfill&Duration: \taskdurationtext \T \\
+\midrule
+\rowcolor{cream}{\bfseries Objective:}	&\multicolumn{2}{l}
+{ \parbox{5.25in}{\raggedright  \taskobjectivetext}}\T \\
+\midrule
+\rowcolor{cream}{\bfseries Approach:}& \multicolumn{2}{l}{ \parbox{5.25in}
+{\T\raggedright  \taskapproachtext \B}	} \\
+\midrule
+\rowcolor{cream}{\bfseries Output:}&	\multicolumn{2}{l}
+{\parbox{5.25in}{\raggedright \taskoutputtext\T }}\\
+\bottomrule
+ \end{tabular}
+ %\end{center}
+ \normalfont \normalsize
+ }\hfill
+ }
+
+
+%Deliverable  Table layout
+\newcommand{\deliverablenametext}{\ }
+\newcommand{\deliverablenumbertext}{\ }
+\newcommand{\deliverabledescriptiontext}{\ }
+\newcommand{\deliverabledatetext}{\ }
+
+\newcommand{\deliverablenumber}[1]{\renewcommand{\deliverablenumbertext}{#1}}
+\newcommand{\deliverablename}[1]{\renewcommand{\deliverablenametext}{#1}}
+
+\newcommand{\deliverabledate}[1]{\renewcommand{\deliverabledatetext}{#1}}
+
+\newcommand{\deliverabledescription}[1]{\renewcommand{\deliverabledescriptiontext}{#1}}
+
+\newcommand{\makedeliverable}{
+%\begin{center}
+\hbox{
+\sffamily \small
+\begin{tabular}{llr}
+\toprule
+\rowcolor{palegreen}{\bfseries Deliverable \deliverablenumbertext}&	\parbox{3in}{\bfseries \deliverablenametext}\hfill& {\bfseries Date (MAC):} \deliverabledatetext \T \\
+\midrule
+
+\rowcolor{cream}{\bfseries Description:}& \multicolumn{2}{l}{ \parbox{5.25in}
+{\T\raggedright  \deliverabledescriptiontext \B}	} \\
+
+\bottomrule
+ \end{tabular}
+ %\end{center}
+ \normalfont \normalsize
+ }\hfill
+ }
+
+
