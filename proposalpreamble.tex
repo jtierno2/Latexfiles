@@ -58,9 +58,9 @@
 
 %%% Colors
 
-\definecolor{cream}{RGB}{254,248,239} % table body
-\definecolor{palegreen}{RGB}{224,237,213} %table title
-\definecolor{purple}{rgb}{1,0,1} % comments
+\definecolor{titlerowcolor}{RGB}{173,204,165} % table body
+\definecolor{bodyrowcolor}{RGB}{236,227,193} %table title
+\definecolor{cmntcolor}{rgb}{1,0,1} % comments
 
 
 
@@ -73,7 +73,7 @@
 \newif\ifcomments
 \newcounter{cmntcntr}
 \setcounter{cmntcntr}{1}
-\newcommand{\cmnt}[1]{\ifcomments \marginpar{\raggedright \scriptsize \color{purple} (\arabic{cmntcntr}) #1  \addtocounter{cmntcntr}{1}}\fi}
+\newcommand{\cmnt}[1]{\ifcomments \marginpar{\raggedright \scriptsize \color{cmntcolor} (\arabic{cmntcntr}) #1  \addtocounter{cmntcntr}{1}}\fi}
 
 
 
@@ -111,14 +111,14 @@
 \sffamily \small
 \noindent \begin{tabular}{clclr}
 \toprule
-\rowcolor{palegreen} \T{\bfseries Project:}& \parbox{1in}{\projectnametext }&	{\bfseries Performer: }&\parbox{2in}{\projectperformertext} &{\bfseries POP:}	\projectPOPtext \B\\
+\rowcolor{titlerowcolor} \T{\bfseries Project:}& \parbox{1in}{\projectnametext }&	{\bfseries Performer: }&\parbox{2in}{\projectperformertext} &{\bfseries POP:}	\projectPOPtext \B\\
 \midrule
-\rowcolor{cream} \bfseries{Description}&\multicolumn{4}{l}{\parbox{5.325in}{\T \raggedright\rightskip=0pt plus .2in  \projectdescriptiontext\B}}\\
+\rowcolor{bodyrowcolor} \bfseries{Description}&\multicolumn{4}{l}{\parbox{5.325in}{\T \raggedright\rightskip=0pt plus .2in  \projectdescriptiontext\B}}\\
 \midrule
-\rowcolor{cream}{\bfseries Customer:}&\projectcustomertext{}& \bfseries{POC:}& \multicolumn{2}{l}{\parbox{3.325in}{\T \raggedright\rightskip=0pt plus .2in  \projectPOCtext \B}}\\
+\rowcolor{bodyrowcolor}{\bfseries Customer:}&\projectcustomertext{}& \bfseries{POC:}& \multicolumn{2}{l}{\parbox{3.325in}{\T \raggedright\rightskip=0pt plus .2in  \projectPOCtext \B}}\\
 \midrule
 
-\rowcolor{cream} {\bfseries Relevance} &\multicolumn{4}{l}{\parbox{5.325in}{\T \raggedright\rightskip=0pt plus .2in  \projectrelevancetext \B}}
+\rowcolor{bodyrowcolor} {\bfseries Relevance} &\multicolumn{4}{l}{\parbox{5.325in}{\T \raggedright\rightskip=0pt plus .2in  \projectrelevancetext \B}}
  \\
 \iflast
 \bottomrule
@@ -149,15 +149,15 @@
 \sffamily \small
 \begin{tabular}{llr}
 \toprule
-\rowcolor{palegreen}{\bfseries Task \tasknumbertext}&	\parbox{4in}{\bfseries \tasknametext}\hfill&{\bfseries Duration:} \taskdurationtext \T \\
+\rowcolor{titlerowcolor}{\bfseries Task \tasknumbertext}&	\parbox{4in}{\bfseries \tasknametext}\hfill&{\bfseries Duration:} \taskdurationtext \T \\
 \midrule
-\rowcolor{cream}{\bfseries Objective:}	&\multicolumn{2}{l}
+\rowcolor{bodyrowcolor}{\bfseries Objective:}	&\multicolumn{2}{l}
 { \parbox{5.25in}{\raggedright\rightskip=0pt plus .2in   \taskobjectivetext}}\T \\
 \midrule
-\rowcolor{cream}{\bfseries Approach:}& \multicolumn{2}{l}{ \parbox{5.4375in}
+\rowcolor{bodyrowcolor}{\bfseries Approach:}& \multicolumn{2}{l}{ \parbox{5.4375in}
 {\T\raggedright\rightskip=0pt plus .2in   \taskapproachtext \B}	} \\
 \midrule
-\rowcolor{cream}{\bfseries Output:}&	\multicolumn{2}{l}
+\rowcolor{bodyrowcolor}{\bfseries Output:}&	\multicolumn{2}{l}
 {\parbox{5.25in}{\raggedright\rightskip=0pt plus .2in  \taskoutputtext\T }}\\
 \iflast
 \bottomrule
@@ -189,10 +189,10 @@
 \sffamily \small
 \begin{tabular}{lll}
 \toprule
-\rowcolor{palegreen}{\bfseries Deliverable \deliverablenumbertext}&	\parbox{3in}{\bfseries \deliverablenametext}\hfill& {\bfseries Date (MAC):} \deliverabledatetext \T \\
+\rowcolor{titlerowcolor}{\bfseries Deliverable \deliverablenumbertext}&	\parbox{3in}{\bfseries \deliverablenametext}\hfill& {\bfseries Date (MAC):} \deliverabledatetext \T \\
 \midrule
 
-\rowcolor{cream}{\bfseries Description:}& \multicolumn{2}{l}{ \parbox{5.25in}
+\rowcolor{bodyrowcolor}{\bfseries Description:}& \multicolumn{2}{l}{ \parbox{5.25in}
 {\T\raggedright\rightskip=0pt plus .2in   \deliverabledescriptiontext \B}	} \\
 
 \iflast
