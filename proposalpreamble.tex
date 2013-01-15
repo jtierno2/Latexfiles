@@ -1,3 +1,6 @@
+ 
+
+
 \usepackage{geometry}                			% See geometry.pdf to learn the layout options. There are lots.
 \geometry{letterpaper}                   			% ... or a4paper or a5paper or ... 
 
@@ -18,14 +21,14 @@
 \usepackage{amsthm}
 \usepackage{soul} % for highlighting 
 \usepackage{url}
-
+\usepackage{lipsum}
 
 
 %%% HEADERS & FOOTERS
 \usepackage{fancyhdr} 					% This should be set AFTER setting up the page geometry
 \pagestyle{fancy} 						% options: empty , plain , fancy
 \renewcommand{\headrulewidth}{0pt} 		% customise the layout...
-\lhead{\small \textsf{Advanced Human Robot Interaction to Create Human Robot Teams} \newline \vspace{3pt}{\bfseries \textsf A131-068-0002}}
+\lhead{\small \textsf{Program Title} \newline \vspace{3pt}{\bfseries \textsf Prop \#}}
 \chead{}
 \rhead{\includegraphics[width=1.5in]{BRC-Logo001.jpg}}
 \lfoot{}
@@ -34,7 +37,7 @@
 
 \fancypagestyle{firststyle}
 {
- \lhead{\small \textsf{Advanced Human Robot Interaction to Create Human Robot Teams} \newline \vspace{3pt}{\bfseries \textsf A131-068-0002}}
+ \lhead{\small \textsf{Program Title} \newline \vspace{3pt}{\bfseries \textsf Prop \#}}
 \chead{}
 \rhead{\includegraphics[width=1.5in]{BRC-Logo001.jpg}}
 \lfoot{}
@@ -67,8 +70,12 @@
 \newcommand\B{\rule[-1.2ex]{0pt}{0pt}} 			% Bottom strut
 
 
-\newcommand{\eRein}{{\sffamily \bfseries eRein }}
-\newcommand{\eReinNs}{{\sffamily \bfseries eRein}}
+\newif\ifcomments
+\newcounter{cmntcntr}
+\setcounter{cmntcntr}{1}
+\newcommand{\cmnt}[1]{\ifcomments \marginpar{\raggedright \scriptsize \color{purple} (\arabic{cmntcntr}) #1  \addtocounter{cmntcntr}{1}}\fi}
+
+
 
 %%% PAGE LAYOUT
 
@@ -81,6 +88,9 @@
 %%%% Proposal Formats
 
 
+\newif\iflast
+
+
 % Previous Projects layout
 \newcommand{\projectnametext}{\ }
 \newcommand{\projectperformertext}{\ }
@@ -88,30 +98,33 @@
 \newcommand{\projectPOCtext}{\ }
 \newcommand{\projectPOPtext}{\ }
 \newcommand{\projectrelevancetext}{\ }
+\newcommand{\projectcustomertext}{\ }
 \newcommand{\projectname}[1]{\renewcommand{\projectnametext}{#1}}
 \newcommand{\projectperformer}[1]{\renewcommand{\projectperformertext}{#1}}
 \newcommand{\projectdescription}[1]{\renewcommand{\projectdescriptiontext}{#1}}
 \newcommand{\projectPOC}[1]{\renewcommand{\projectPOCtext}{#1}}
 \newcommand{\projectPOP}[1]{\renewcommand{\projectPOPtext}{#1}}
 \newcommand{\projectrelevance}[1]{\renewcommand{\projectrelevancetext}{#1}}
-
-\newcommand{\makeproject}{
-
+\newcommand{\projectcustomer}[1]{\renewcommand{\projectcustomertext}{#1}}
+\newcommand{\makeproject}[1]{
+\ifthenelse{\equal{#1}{}}{\lastfalse}{\lasttrue}
 \sffamily \small
-\noindent \begin{tabular}{lllr}
+\noindent \begin{tabular}{clclr}
 \toprule
+\rowcolor{palegreen} \T{\bfseries Project:}& \parbox{1in}{\projectnametext }&	{\bfseries Performer: }&\parbox{2in}{\projectperformertext} &{\bfseries POP:}	\projectPOPtext \B\\
+\midrule
+\rowcolor{cream} \bfseries{Description}&\multicolumn{4}{l}{\parbox{5.325in}{\T \raggedright\rightskip=0pt plus .2in  \projectdescriptiontext\B}}\\
+\midrule
+\rowcolor{cream}{\bfseries Customer:}&\projectcustomertext{}& \bfseries{POC:}& \multicolumn{2}{l}{\parbox{3.325in}{\T \raggedright\rightskip=0pt plus .2in  \projectPOCtext \B}}\\
+\midrule
 
-\rowcolor{palegreen} \T{\bfseries Project:}& \projectnametext &{\bfseries Performer:}	\projectperformertext &{\bfseries POP:}	\projectPOPtext \B\\
-\midrule
-\rowcolor{cream} \bfseries{Description}&\multicolumn{3}{l}{\parbox{5.25in}{\T \raggedright \projectdescriptiontext\B}}\\
-\midrule
-\rowcolor{cream} \bfseries{POC:}& \multicolumn{3}{l}{\parbox{5.25in}{\T \raggedright \projectPOCtext \B}}\\
-\midrule
-
-\rowcolor{cream} {\bfseries Relevance} &\multicolumn{3}{l}{\parbox{5.25in}{\T \raggedright \projectrelevancetext \B}}
- \\\bottomrule
+\rowcolor{cream} {\bfseries Relevance} &\multicolumn{4}{l}{\parbox{5.325in}{\T \raggedright\rightskip=0pt plus .2in  \projectrelevancetext \B}}
+ \\
+\iflast
+\bottomrule
+ \fi
 \end{tabular}
-\normalfont
+\normalfont \normalsize
 }
 
 
@@ -128,23 +141,27 @@
 \newcommand{\taskduration}[1]{\renewcommand{\taskdurationtext}{#1}}
 \newcommand{\taskapproach}[1]{\renewcommand{\taskapproachtext}{#1}}
 \newcommand{\tasknumber}[1]{\renewcommand{\tasknumbertext}{#1}}
-\newcommand{\maketask}{
+\newcommand{\maketask}[1]{
 %\begin{center}
+
+\ifthenelse{\equal{#1}{}}{\lastfalse}{\lasttrue}
 \hbox{
 \sffamily \small
 \begin{tabular}{llr}
 \toprule
-\rowcolor{palegreen}{\bfseries Task \tasknumbertext}&	\parbox{4in}{\bfseries \tasknametext}\hfill&Duration: \taskdurationtext \T \\
+\rowcolor{palegreen}{\bfseries Task \tasknumbertext}&	\parbox{4in}{\bfseries \tasknametext}\hfill&{\bfseries Duration:} \taskdurationtext \T \\
 \midrule
 \rowcolor{cream}{\bfseries Objective:}	&\multicolumn{2}{l}
-{ \parbox{5.25in}{\raggedright  \taskobjectivetext}}\T \\
+{ \parbox{5.25in}{\raggedright\rightskip=0pt plus .2in   \taskobjectivetext}}\T \\
 \midrule
-\rowcolor{cream}{\bfseries Approach:}& \multicolumn{2}{l}{ \parbox{5.25in}
-{\T\raggedright  \taskapproachtext \B}	} \\
+\rowcolor{cream}{\bfseries Approach:}& \multicolumn{2}{l}{ \parbox{5.4375in}
+{\T\raggedright\rightskip=0pt plus .2in   \taskapproachtext \B}	} \\
 \midrule
 \rowcolor{cream}{\bfseries Output:}&	\multicolumn{2}{l}
-{\parbox{5.25in}{\raggedright \taskoutputtext\T }}\\
+{\parbox{5.25in}{\raggedright\rightskip=0pt plus .2in  \taskoutputtext\T }}\\
+\iflast
 \bottomrule
+ \fi
  \end{tabular}
  %\end{center}
  \normalfont \normalsize
@@ -165,23 +182,24 @@
 
 \newcommand{\deliverabledescription}[1]{\renewcommand{\deliverabledescriptiontext}{#1}}
 
-\newcommand{\makedeliverable}{
+\newcommand{\makedeliverable}[1]{
 %\begin{center}
+\ifthenelse{\equal{#1}{}}{\lastfalse}{\lasttrue}
 \hbox{
 \sffamily \small
-\begin{tabular}{llr}
+\begin{tabular}{lll}
 \toprule
 \rowcolor{palegreen}{\bfseries Deliverable \deliverablenumbertext}&	\parbox{3in}{\bfseries \deliverablenametext}\hfill& {\bfseries Date (MAC):} \deliverabledatetext \T \\
 \midrule
 
 \rowcolor{cream}{\bfseries Description:}& \multicolumn{2}{l}{ \parbox{5.25in}
-{\T\raggedright  \deliverabledescriptiontext \B}	} \\
+{\T\raggedright\rightskip=0pt plus .2in   \deliverabledescriptiontext \B}	} \\
 
+\iflast
 \bottomrule
+ \fi
  \end{tabular}
  %\end{center}
  \normalfont \normalsize
  }\hfill
  }
-
-

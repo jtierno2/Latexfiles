@@ -1,0 +1,83 @@
+\documentclass[12pt, oneside]{article}  
+
+\input{proposalpreamble.tex}
+
+\setlength{\textheight}{538pt}   % these are for the first page. Smaller page to accommodate 
+\setlength{\footskip}{150pt}	% longer footer
+\setlength{\headsep}{18pt}
+\setlength{\topmargin}{-62pt}
+\begin{document}
+
+
+\setlength{\textheight}{630pt}	% These take effect on the second page
+\setlength{\footskip}{21pt}	% 72pt per inch.
+
+
+
+\commentstrue
+
+\thispagestyle{firststyle}
+
+
+
+\noindent {\bfseries Technical Volumne}
+
+\section{Introduction}
+\lipsum[1-5]
+\cmnt{This text never gets old}
+\section{Technical Approach}
+\lipsum[6-15]
+
+\section{Statement of Work}
+\subsection{Tasks}
+\tasknumber{1}
+\taskname{Requirements Analysis}
+\taskobjective{Establish system requirements.}
+\taskduration{2m}
+\taskapproach{\lipsum[1]}
+\taskoutput{List of requirements.}
+\maketask{}
+
+
+
+\tasknumber{2}
+\taskname{Requirements Implementation}
+\taskobjective{Implement system requirements.}
+\taskduration{2m}
+\taskapproach{\lipsum[2]}
+\taskoutput{System Design.}
+\maketask{bottom}\cmnt{add ``bottom'' as a parameter to make task to produce a bottom rule}
+
+
+\subsection{Deliverables}
+\deliverablenumber{1}
+\deliverablename{Monthly Progress Report}
+\deliverabledate{1,2,3,4,5,6}
+\deliverabledescription{Monthly technical progress and financial status if required. Contractor Format}
+\makedeliverable{}
+
+\deliverablenumber{2}
+\deliverablename{Kickoff Presentation}
+\deliverabledate{0}
+\deliverabledescription{Presentation with program plan and technical approach. Contractor Format}
+\makedeliverable{bottom}
+
+\deliverablenumber{3}
+\deliverablename{Final Report}
+\deliverabledate{6}
+\deliverabledescription{Report highlighting the work above on the concept of 
+operations (CONOPS) and  design. Contractor Format}
+\makedeliverable{bottom}
+
+
+\section{Related Work}
+\projectname{ACME}
+\projectperformer{W. E. Coyote}
+\projectPOP{1967-1977}
+\projectcustomer{RoadRunner}
+\projectPOC{road.runner@acme.com}
+\projectdescription{\lipsum[1]}
+\projectrelevance{\lipsum[2]}
+\makeproject{last}
+\end{document}
+
